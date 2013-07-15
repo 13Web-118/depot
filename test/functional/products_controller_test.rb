@@ -3,12 +3,12 @@ require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
-	@update = {
-	title: 'Lorem Ipsum',
-	description: 'Wibbles are fun!',
-	image_url: 'lorem.jpg',
-	price: 19.95
-	}
+    @update = {
+      title: 'Lorem Ipsum',
+      description: 'Wibbles are fun!',
+      image_url: 'lorem.jpg',
+      price: 19.95,
+    }
   end
 
   test "should get index" do
@@ -24,8 +24,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should create product" do
     assert_difference('Product.count') do
-      #post :create, product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title }
-	  post:create,product:@update
+      post :create, product: @update
     end
 
     assert_redirected_to product_path(assigns(:product))
@@ -42,8 +41,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
-    #put :update, id: @product, product: { description: @product.description, image_url: @product.image_url, price: @product.price, title: @product.title }
-	put:update,id:@product,product:@update
+    put :update, id: @product, product: @update
     assert_redirected_to product_path(assigns(:product))
   end
 
@@ -54,14 +52,4 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
-  
-test "product is not valid without a unique title" do
-product = Product.new(title: products(:ruby).title,
-description:"yyy",
-price:1,
-image_url:"fred.gif")
-assert !product.save
-assert_equal "has already been taken",product.errors[:title].join(';')
-end
-  
 end

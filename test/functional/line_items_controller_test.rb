@@ -19,6 +19,8 @@ class LineItemsControllerTest < ActionController::TestCase
   test "should create line_item" do
     assert_difference('LineItem.count') do
       post :create, product_id: products(:ruby).id
+      
+      assert_redirected_to store_path
     end
 
     assert_redirected_to store_path
@@ -45,5 +47,13 @@ class LineItemsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to line_items_path
+  end
+    
+  test "markup needed for store.js.coffee is in place" do
+    get :index
+    assert_response :success
+    assert_response :success
+    #assert_select '.store .entry > img',3
+    #assert_select '.entry input[type=submit]',3
   end
 end

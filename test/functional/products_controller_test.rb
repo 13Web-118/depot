@@ -6,7 +6,7 @@ class ProductsControllerTest < ActionController::TestCase
     @update = {
       title: 'Lorem Ipsum',
       description: 'Wibbles are fun!',
-      image_url: 'lorem.jpg',
+      image_url: fixture_file_upload('/files/sample.jpg', 'image/jpeg'),
       price: 19.95,
     }
   end

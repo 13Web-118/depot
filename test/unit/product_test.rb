@@ -1,11 +1,19 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  fixtures :products
+  fixtures :products 
   # test "the truth" do
   #   assert true
   # end
   #字段不能为空
+  test "product will be create" do
+    product = Product.new(title: "test book title",
+      description: "test book description",
+      image_url: File.open("#{Rails.root}/test/fixtures/asserts/example.jpg"),
+      price: "25")
+    
+    assert product.valid?
+  end
 
   test "product attributes must not be empty" do
   	product = Product.new
@@ -20,7 +28,8 @@ class ProductTest < ActiveSupport::TestCase
   test "product price must be positive" do
   	product = Product.new(title:  "My Book Title",
   		description: "yyy",
-  		image_url:  "zzz.jpg")
+  		image_url:  File.open("#{Rails.root}/test/fixtures/asserts/example.jpg")
+  	)
   	product.price = -1
   	assert product.invalid?
   	assert_equal "must be greater than or equal to 0.01",
@@ -40,13 +49,13 @@ class ProductTest < ActiveSupport::TestCase
   	Product.new(title: "My Book Title",
   		description: "yyy",
   		price:  1,
-  		image_url: image_url)
+  		image_url: File.open("#{Rails.root}/test/fixtures/asserts/#{image_url}"))
   end
 
+  #由于图片需要真实来源的图片，所以可以在里面放置相应格式的文件
   test "image url" do
-  	ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.jpg
-  		http://a.b.c/x/y/z/fred.gif }
-  	bad = %w{ fred.doc fred.gif/more fred.gif.more }
+  	ok = %w{ example.gif example.jpg example.png example.JPG example.jpg }
+  	bad = %w{ example.doc example.gif.more }
 
   	ok.each do |name|
   		assert new_product(name).valid?,"#{name} shouldn't be invalid"

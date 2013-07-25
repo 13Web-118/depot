@@ -1,0 +1,28 @@
+[1mdiff --git a/log/public/404.html b/log/public/404.html[m
+[1mdeleted file mode 100644[m
+[1mindex 9a48320..0000000[m
+[1m--- a/log/public/404.html[m
+[1m+++ /dev/null[m
+[36m@@ -1,26 +0,0 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-<html>[m
+[31m-<head>[m
+[31m-  <title>The page you were looking for doesn't exist (404)</title>[m
+[31m-  <style type="text/css">[m
+[31m-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }[m
+[31m-    div.dialog {[m
+[31m-      width: 25em;[m
+[31m-      padding: 0 4em;[m
+[31m-      margin: 4em auto 0 auto;[m
+[31m-      border: 1px solid #ccc;[m
+[31m-      border-right-color: #999;[m
+[31m-      border-bottom-color: #999;[m
+[31m-    }[m
+[31m-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }[m
+[31m-  </style>[m
+[31m-</head>[m
+[31m-[m
+[31m-<body>[m
+[31m-  <!-- This file lives in public/404.html -->[m
+[31m-  <div class="dialog">[m
+[31m-    <h1>The page you were looking for doesn't exist.</

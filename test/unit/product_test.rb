@@ -45,7 +45,7 @@ class ProductTest < ActiveSupport::TestCase
 
   #由于图片需要真实来源的图片，所以可以在里面放置相应格式的文件
   test "image url" do
-  	ok = %w{ sample.gif sample.jpg sample.png sample.JPG sample.PNG}
+  	ok = %w{ sample.gif sample.jpg sample.png }
   	bad = %w{ sample.doc sample.gif.more }
 
   	ok.each do |name|

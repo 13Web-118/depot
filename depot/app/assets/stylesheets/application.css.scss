@@ -32,6 +32,11 @@
   background-color: #f0f0f0;
   font: bold smaller sans-serif;
 }
+
+#list_categories{
+  color:#b1b;
+}
+
 #columns {
   background: #141;
 
@@ -50,6 +55,8 @@
     form,div {
       display:inline;
     }
+    
+    
 
     input {
       font-size:small;

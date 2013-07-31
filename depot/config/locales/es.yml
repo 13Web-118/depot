@@ -1,6 +1,7 @@
 es:
   layouts:
     application:
+      all_categories: "todas as categorias"
       title: "Publicationes de Pragmatic"
       home: "Inicio"
       questions: "Preguntas"

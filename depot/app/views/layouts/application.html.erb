@@ -7,6 +7,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body class="<%= controller.controller_name %>">
+	<!--<div id="all_categories">
+			<button onclick="paintIt(this, '#990000')"><%= t('.all_categories') %></button>
+	</div>-->
 	<div id="banner">
 		<%= form_tag store_path, class: 'locale' do %>
 		  <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
@@ -24,7 +27,7 @@
 				   <%= render @cart %>
 				<% end %>
 		    <% end %>
-			</div>		
+			</div>
 			<ul>
 				<li><a href="http://www...."><%= t('.home') %></a></li>
 				<li><a href="http://www..../faq"><%= t('.questions') %></a></li>
@@ -43,6 +46,10 @@
 
                 <%= button_to 'Logout', logout_path, method: :delete %>
             <% end %>
+            
+            <div id="list_categories">
+		    	<%= render 'categories/list'%>
+		    </div>
 		</div>
 		<div id="main">
 		<%= yield %>

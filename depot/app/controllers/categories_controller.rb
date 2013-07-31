@@ -1,6 +1,15 @@
 class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
+  def list
+    @categories = Category.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @categories }
+    end
+  end
+  
   def index
     @categories = Category.all
 

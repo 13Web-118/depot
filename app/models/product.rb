@@ -23,4 +23,12 @@ class Product < ActiveRecord::Base
   			return false
   		end
   	end
+  	
+  	def self.search(search)
+  	  if search
+  	    find(:all, :conditions => ['title LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%"])
+  	  else
+  	    find(:all)
+  	  end 
+  	end
 end

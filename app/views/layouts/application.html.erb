@@ -16,11 +16,17 @@
 		  <%= submit_tag 'submit' %>
 		  <%= javascript_tag "$('.locale input').hide()" %>
 		<% end %>
-		<%= image_tag("logo.png") %>
+		<%= image_tag("logo.png") %> 
 		<%= @page_title || t('.title') %>
 	</div>
 	<div id="columns">
 		<div id ="side">
+			<%= form_tag :controller => 'store', :action => 'index' do %>
+			<p>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag "Search", :name => nil %>
+			</p>
+			<% end %>
 			<div id="cart">
 			<% if @cart %>
 				<%= hidden_div_if(@cart.line_items.empty?,id:'cart') do %>

@@ -322,6 +322,3 @@ CategoryProduct.create(product_id:19,
 
 CategoryProduct.create(product_id:20,
   category_id: 20)
-
-CategoryProduct.create(product_id:20,
-  category_id: 20)

@@ -6,11 +6,9 @@ class StoreController < ApplicationController
     else
       if params[:search]
         @products = Product.search(params[:search])
-        @cart = current_cart
       else
         if params[:id]
           @products = Array.new
-          @cart = current_cart
           category = Category.find(params[:id])
           if category.parent_id == 0
               CategoryProduct.all.each do |category_product|
@@ -48,10 +46,11 @@ class StoreController < ApplicationController
               end
             end
           else
-            @products = Product.order(:title)
-            @cart = current_cart
+            @products = Product.all
           end
         end
     end
+    @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+    @cart = current_cart
   end
 end

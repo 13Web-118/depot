@@ -52,10 +52,11 @@
 
                 <%= button_to 'Logout', logout_path, method: :delete %>
             <% end %>
-            
-            <div id="list_categories">
-		    	<%= render 'categories/list'%>
-		    </div>
+            <% if !session[:user_id] %>
+            	<div id="list_categories">
+		    		<%= render 'categories/list'%>
+		    	</div>
+		    <% end %>
 		</div>
 		<div id="main">
 		<%= yield %>

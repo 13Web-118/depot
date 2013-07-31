@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    #@products = Product.all
+    @products = Product.order("id").page(params[:page]).per(5)
     @cart=current_cart
 
     respond_to do |format|

@@ -262,6 +262,23 @@ Product.create(title: 'Hobo at Work',
   image_url: File.new("#{Rails.root}/public/uploads/product/image/20.JPG"),
   price: 9.99)
   
+i=0
+
+while  i<100 do
+  i = i+1
+  Product.create(title: 'SampleBook'+String(i),
+  description: 
+    %{<p>
+        CoffeeScript is JavaScript done right. It provides all of JavaScript's
+  functionality wrapped in a cleaner, more succinct syntax. In the first
+  book on this exciting new language, CoffeeScript guru Trevor Burnham
+  shows you how to hold onto all the power and flexibility of JavaScript
+  while writing clearer, cleaner, and safer code.
+      </p>},
+  image_url: File.new("#{Rails.root}/public/uploads/product/image/1.jpg"),    
+  price: 36.00)
+end
+  
 #===========================================================================================
 CategoryProduct.create(product_id:1,
   category_id: 17)

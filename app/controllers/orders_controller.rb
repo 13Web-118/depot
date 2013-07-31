@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
     skip_before_filter :authorize, only: [:new, :create]
-        skip_before_filter :clientauthorize
+        skip_before_filter :clientauthorize,only: [:index,:show,:edit,:new,:create,:update,:destroy]
   # GET /orders
   # GET /orders.json
   def index

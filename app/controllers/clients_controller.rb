@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+  skip_before_filter :authorize,only: [:new,:edit,:destroy,:show]
+      skip_before_filter :clientauthorize
   # GET /clients
   # GET /clients.json
   def index

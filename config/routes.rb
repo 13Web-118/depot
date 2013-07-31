@@ -1,4 +1,12 @@
 Depot::Application.routes.draw do
+  get 'clientadmin'=>'clientadmin#index'
+  
+  controller :clientsession do
+    get 'clientlogin'=> :new
+    post 'clientlogin'=> :create
+    delete 'clientlogout'=>:destroy
+  end
+
   resources :clients
 
 

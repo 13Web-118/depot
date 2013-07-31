@@ -1,4 +1,7 @@
 Depot::Application.routes.draw do
+  resources :clients
+
+
   get 'admin' => 'admin#index'
 
 

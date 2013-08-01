@@ -18,6 +18,20 @@ ActiveRecord::Schema.define(:version => 20130801033859) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.integer  "parent_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "category_products", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "clients", :force => true do |t|
     t.string   "name"
     t.string   "password_digest"

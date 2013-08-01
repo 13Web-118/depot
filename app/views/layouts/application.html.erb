@@ -7,13 +7,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body class="<%= controller.controller_name %>">
+	<!--<div id="all_categories">
+			<button onclick="paintIt(this, '#990000')"><%= t('.all_categories') %></button>
+	</div>-->
 	<div id="banner">
 		<%= form_tag store_path, class: 'locale' do %>
 		  <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
 		  <%= submit_tag 'submit' %>
 		  <%= javascript_tag "$('.locale input').hide()" %>
 		<% end %>
-		<%= image_tag("logo.png") %>
+		<%= image_tag("logo.png") %> 
 		<%= @page_title || t('.title') %>
 	</div>
 	<div id="columns">
@@ -24,6 +27,14 @@
 				<% else %>
 				<font color="white">Please: </font><%= button_to "Login",clientlogin_path,method: :get%></br></br>
 				<% end %>
+			</div>
+			<div>
+			<%= form_tag :controller => 'store', :action => 'index' do %>
+			<p>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag "Search", :name => nil %>
+			</p>
+			<% end %>
 			</div>
 			<div id="cart">
 			<% if @cart %>
@@ -44,11 +55,18 @@
                     <li><%= link_to 'Orders', orders_path %></li>
                     <li><%= link_to 'Products', products_path %></li>
                     <li><%= link_to 'Users', users_path %></li>
+                    <li><%= link_to 'Categories', categories_path %>
+                    <li><%= link_to 'Category_products', category_products_path %>
 					<li><%= link_to 'Clients', clients_path %></li>
                 </ul>
 
                 <%= button_to 'Logout', logout_path, method: :delete %>
             <% end %>
+            <% if !session[:user_id] %>
+            	<div id="list_categories">
+		    		<%= render 'categories/list'%>
+		    	</div>
+		    <% end %>
 		</div>
 		<div id="main">
 		<%= yield %>
@@ -56,3 +74,4 @@
 	</div>
 </body>
 </html>
+

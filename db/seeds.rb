@@ -1,11 +1,76 @@
 #encoding: utf-8
 Product.delete_all
 User.delete_all
+Category.delete_all
+CategoryProduct.delete_all
 
 User.create(name: 'admin',
   password: '118',
   password_confirmation: '118')
   
+#====================================================================================
+
+Category.create(title:'文学',
+  parent_id:0)
+  
+Category.create(title:'管理',
+  parent_id:0)
+  
+Category.create(title:'少儿',
+  parent_id:0)
+  
+Category.create(title:'生活',
+  parent_id:0)
+
+Category.create(title:'计算机与互联网',
+  parent_id:0)
+  
+Category.create(title:'小说',
+  parent_id:1)
+  
+Category.create(title:'青春',
+  parent_id:1)
+
+Category.create(title:'青春文学',
+  parent_id:1)
+
+Category.create(title:'经济',
+  parent_id:2)
+  
+Category.create(title:'金融与投资',
+  parent_id:2)
+  
+Category.create(title:'儿童文学',
+  parent_id:3)
+  
+Category.create(title:'科普',
+  parent_id:3)
+  
+Category.create(title:'旅游/地图',
+  parent_id:4)
+  
+Category.create(title:'家教/育儿',
+  parent_id:4)
+  
+Category.create(title:'手工DIY',
+  parent_id:4)
+  
+Category.create(title:'操作系统',
+  parent_id:5)
+  
+Category.create(title:'编程语言',
+  parent_id:5)
+  
+Category.create(title:'数据库',
+  parent_id:5)
+  
+Category.create(title:'网络通信',
+  parent_id:5)
+  
+Category.create(title:'网站制作',
+  parent_id:5)
+  
+#====================================================================================
 Product.create(title: 'CoffeeScript',
   description: 
     %{<p>
@@ -195,3 +260,81 @@ Product.create(title: 'Hobo at Work',
      The definitive guide to the Hobo rapid application development framework for Ruby on Rails.</p>},
   image_url: File.new("#{Rails.root}/public/uploads/product/image/20.JPG"),
   price: 9.99)
+  
+i=0
+
+while  i<100 do
+  i = i+1
+  Product.create(title: 'SampleBook'+String(i),
+  description: 
+    %{<p>
+        CoffeeScript is JavaScript done right. It provides all of JavaScript's
+  functionality wrapped in a cleaner, more succinct syntax. In the first
+  book on this exciting new language, CoffeeScript guru Trevor Burnham
+  shows you how to hold onto all the power and flexibility of JavaScriptrake
+  while writing clearer, cleaner, and safer code.
+      </p>},
+  image_url: File.new("#{Rails.root}/public/uploads/product/image/1.jpg"),    
+  price: 36.00)
+end
+  
+#===========================================================================================
+CategoryProduct.create(product_id:1,
+  category_id: 17)
+  
+CategoryProduct.create(product_id:2,
+  category_id: 20)
+
+CategoryProduct.create(product_id:3,
+  category_id: 16)
+
+CategoryProduct.create(product_id:4,
+  category_id: 17)
+
+CategoryProduct.create(product_id:5,
+  category_id: 12)
+  
+CategoryProduct.create(product_id:6,
+  category_id: 8)
+
+CategoryProduct.create(product_id:7,
+  category_id: 8)
+  
+CategoryProduct.create(product_id:8,
+  category_id: 11)
+  
+CategoryProduct.create(product_id:9,
+  category_id: 6)
+  
+CategoryProduct.create(product_id:10,
+  category_id: 6)
+  
+CategoryProduct.create(product_id:11,
+  category_id: 20)
+  
+CategoryProduct.create(product_id:12,
+  category_id: 17)
+  
+CategoryProduct.create(product_id:13,
+  category_id: 16)
+
+CategoryProduct.create(product_id:14,
+  category_id: 17)
+  
+CategoryProduct.create(product_id:15,
+  category_id: 20)
+  
+CategoryProduct.create(product_id:16,
+  category_id: 20)
+
+CategoryProduct.create(product_id:17,
+  category_id: 17)
+
+CategoryProduct.create(product_id:18,
+  category_id: 20)
+
+CategoryProduct.create(product_id:19,
+  category_id: 20)
+
+CategoryProduct.create(product_id:20,
+  category_id: 20)

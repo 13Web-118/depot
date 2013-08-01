@@ -1,4 +1,8 @@
 Depot::Application.routes.draw do
+  resources :category_products
+
+  resources :categories
+  
   get 'clientadmin'=>'clientadmin#index'
   
   controller :clientsession do
@@ -46,6 +50,8 @@ Depot::Application.routes.draw do
 
     root to: 'store#index', as: 'store'
   end
+  
+  match "/search" => "store#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,6 +1,7 @@
 ch:
   layouts:
     application:
+      all_categories: "所有商品分类"
       title: "我家书架"
       home: "首页"
       questions: "常见问题"

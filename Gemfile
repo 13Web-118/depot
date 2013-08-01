@@ -1,5 +1,6 @@
 source 'http://ruby.taobao.org'
 #source 'https://rubygems.org'
+
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -43,3 +44,7 @@ gem 'will_paginate', '~>3.0'
 gem 'bcrypt-ruby', '~>3.0.0'
 
 gem 'carrierwave'
+
+gem 'kaminari'
+
+gem "activeadmin", git: "https://github.com/gregbell/active_admin"

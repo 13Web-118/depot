@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
       skip_before_filter :clientauthorize
+
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    #@products = Product.all
+    @products = Product.order("id").page(params[:page]).per(5)
     @cart=current_cart
 
     respond_to do |format|
@@ -48,11 +50,12 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
+    @cart=current_cart
 
     respond_to do |format|
-       if @product.save
-        format.html { redirect_to @product , notice: 'Product was successfully created.' }
-        format.json { render json: @product , status: :created, location: @product}
+      if @product.save
+        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.json { render json: @product, status: :created, location: @product }
       else
         format.html { render action: "new" }
         format.json { render json: @product.errors, status: :unprocessable_entity }

@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  
+  #paginates_per 50
+  #max_paginates_per 100
   has_many :line_items
   
   has_many :orders, through: :line_items
@@ -22,5 +25,13 @@ class Product < ActiveRecord::Base
   			errors.add(:base, 'Line Item present')
   			return false
   		end
+  	end
+  	
+  	def self.search(search)
+  	  if search
+  	    find(:all, :conditions => ['title LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%"])
+  	  else
+  	    find(:all)
+  	  end 
   	end
 end

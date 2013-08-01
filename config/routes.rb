@@ -50,6 +50,8 @@ Depot::Application.routes.draw do
 
     root to: 'store#index', as: 'store'
   end
+  
+  match "/search" => "store#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

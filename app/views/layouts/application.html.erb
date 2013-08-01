@@ -16,7 +16,7 @@
 		  <%= submit_tag 'submit' %>
 		  <%= javascript_tag "$('.locale input').hide()" %>
 		<% end %>
-		<%= image_tag("logo.png") %>
+		<%= image_tag("logo.png") %> 
 		<%= @page_title || t('.title') %>
 	</div>
 	<div id="columns">
@@ -27,6 +27,14 @@
 				<% else %>
 				<font color="white">Please: </font><%= button_to "Login",clientlogin_path,method: :get%></br></br>
 				<% end %>
+			</div>
+			<div>
+			<%= form_tag :controller => 'store', :action => 'index' do %>
+			<p>
+			<%= text_field_tag :search, params[:search] %>
+			<%= submit_tag "Search", :name => nil %>
+			</p>
+			<% end %>
 			</div>
 			<div id="cart">
 			<% if @cart %>
@@ -54,10 +62,11 @@
 
                 <%= button_to 'Logout', logout_path, method: :delete %>
             <% end %>
-            
-            <div id="list_categories">
-		    	<%= render 'categories/list'%>
-		    </div>
+            <% if !session[:user_id] %>
+            	<div id="list_categories">
+		    		<%= render 'categories/list'%>
+		    	</div>
+		    <% end %>
 		</div>
 		<div id="main">
 		<%= yield %>

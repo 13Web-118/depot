@@ -18,7 +18,7 @@
   font: small-caps 40px/40px "Times New Roman",serif;
   color: #282;
   text-align: center;
-
+  
   img {
     float: left;
   }
@@ -35,6 +35,12 @@
 
 #list_categories{
   color:#b1b;
+  a:visited{
+    color:#aaa;
+  }
+  a{
+    color:#888;
+  }
 }
 
 #columns {

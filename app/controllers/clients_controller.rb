@@ -46,6 +46,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
+        session[:client_id]=@client.id
         format.html { redirect_to store_url, notice: 'Client was successfully created.' }
         format.json { render json: @client, status: :created, location: @client }
       else

@@ -7,7 +7,16 @@ class StoreController < ApplicationController
       redirect_to store_path(locale: params[:set_locale])
     else
       if params[:search]
-        @products = Product.search(params[:search])
+        @products1 = Product.search(params[:search])
+        @search_item=params[:search]
+        @products=Array.new
+        @products1.each do |product|
+          t=product.title
+          t.gsub(/ff/,"<font color=red>fff</font>")
+          product.title = t
+          @products.push(product)
+        end
+        
       else
         if params[:id]
           @products = Array.new

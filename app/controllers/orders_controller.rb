@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
     skip_before_filter :authorize, only: [:new, :create]
+    
+    skip_before_filter :clientauthorize,only: [:index,:show,:edit,:create,:update,:destroy]
+    
   # GET /orders
   # GET /orders.json
   def index
@@ -50,6 +53,8 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
     @order.add_line_items_from_cart(current_cart)
+    
+    @order.client_id=session[:client_id]
 
     respond_to do |format|
       if @order.save

@@ -1,8 +1,17 @@
 Depot::Application.routes.draw do
   resources :category_products
 
-
   resources :categories
+  
+  get 'clientadmin'=>'clientadmin#index'
+  
+  controller :clientsession do
+    get 'clientlogin'=> :new
+    post 'clientlogin'=> :create
+    delete 'clientlogout'=>:destroy
+  end
+
+  resources :clients
 
 
   get 'admin' => 'admin#index'

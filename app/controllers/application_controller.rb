@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
+  before_filter :clientauthorize
+  
   before_filter :set_i18n_locale_from_params
 
   protect_from_forgery
@@ -19,8 +21,14 @@ class ApplicationController < ActionController::Base
 
     def authorize
         unless User.find_by_id(session[:user_id])
-            redirect_to login_url, notice: "Please log in"
+            redirect_to login_url, notice: "Please log in as admin"
         end
+    end
+    
+    def clientauthorize
+      unless Client.find_by_id(session[:client_id])
+        redirect_to clientlogin_url,notice: "Please log in as client"
+      end
     end
 
     def set_i18n_locale_from_params

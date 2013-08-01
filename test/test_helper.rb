@@ -13,12 +13,21 @@ class ActiveSupport::TestCase
   def login_as(user)
       session[:user_id] = users(user).id
   end
+  
+  def clientlogin_as(client)
+      session[:client_id] = clients(client).id
+  end
 
   def logout
       session.delete :user_id
   end
+  
+  def clientlogout
+      session.delete :client_id
+  end
 
   def setup
+      clientlogin_as :one if defined? session
       login_as :one if defined? session
   end
 end

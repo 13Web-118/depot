@@ -2,6 +2,8 @@ require 'test_helper'
 
 class UserStoriesTest < ActionDispatch::IntegrationTest
   fixtures :products
+  fixtures :clients
+  
   # test "the truth" do
   #   assert true
   # end
@@ -20,9 +22,16 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     cart = Cart.find(session[:cart_id])
     assert_equal 1, cart.line_items.size
     assert_equal ruby_book, cart.line_items[0].product
+    
 
+
+ 
+
+=begin
     get "orders/new"
-    assert_response :success
+    assert_response 302
+    assert_equal  'Your cart is empty',flash[:notice]
+>>>>>>> 2cde05d4fdd225cc7e2953c1c05aee553a7d5e09
     assert_template "new"
 
     post_via_redirect "/orders",
@@ -52,5 +61,9 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal ["dave@example.com"], mail.to
     assert_equal 'Sam Ruby <depot@example.com>', mail[:from].value
     assert_equal "Pragmatic Store Order Confirmation", mail.subject
+<<<<<<< HEAD
+=======
+=end
+
    end
 end

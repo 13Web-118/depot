@@ -1,12 +1,10 @@
 require 'test_helper' 
 
 class ProductTest < ActiveSupport::TestCase
-  fixtures :products
+  fixtures :products 
   # test "the truth" do
   #   assert true
   # end
-  #字段不能为空
-
   test "product attributes must not be empty" do
   	product = Product.new
   	assert product.invalid?
@@ -45,6 +43,7 @@ class ProductTest < ActiveSupport::TestCase
   	)
   end
 
+  #由于图片需要真实来源的图片，所以可以在里面放置相应格式的文件
   test "image url" do
   	ok = %w{ sample.gif sample.jpg sample.png }
   	bad = %w{ sample.doc sample.gif.more }

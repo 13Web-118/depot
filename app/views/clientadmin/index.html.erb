@@ -1,0 +1,18 @@
+<% if(session[:client_id])%>
+<p>Welcome! <%= @client.name %>!</p>
+<%= button_to 'Logout',clientlogout_path,method: :delete%>
+<h2>Your Orders</h2>
+
+<% if @orders and !@orders.empty? %>
+
+<% @orders.each do |order|%>
+<tr>order:<%= order.id%></tr></br>
+
+<%= render order.line_items %>
+</br>
+<% end %>
+
+<%end %>
+
+
+<% end %>

@@ -1,4 +1,5 @@
 require 'test_helper'
+#include ActionDispatch::TestProcess
 
 class ProductsControllerTest < ActionController::TestCase
   setup do

@@ -71,7 +71,6 @@ Category.create(title:'网站制作',
   parent_id:5)
   
 #====================================================================================
-  
 Product.create(title: 'CoffeeScript',
   description: 
     %{<p>

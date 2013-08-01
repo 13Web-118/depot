@@ -1,8 +1,8 @@
 require 'test_helper'
 
+
 class UserStoriesTest < ActionDispatch::IntegrationTest
-  fixtures :products
-  fixtures :clients
+  fixtures :all
   # test "the truth" do
   #   assert true
   # end
@@ -25,13 +25,18 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
 
 
  
+  dave = clients(:one)
+    post "/clientlogin" , name: dave.name, password: 'secret'
+  follow_redirect!
+    assert_equal 200, status
+  assert_equal "/clientadmin", path
 
-=begin
     get "orders/new"
-    assert_response 302
-    assert_equal  'Your cart is empty',flash[:notice]
+    assert_response :success
+    #assert_equal  'Your cart is empty',flash[:notice]
     assert_template "new"
-
+  
+  
     post_via_redirect "/orders",
                   order: {  name:     "Dave Thomas",
                             address:  "123 The Street",
@@ -59,7 +64,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal ["dave@example.com"], mail.to
     assert_equal 'Sam Ruby <depot@example.com>', mail[:from].value
     assert_equal "Pragmatic Store Order Confirmation", mail.subject
-=end
+
 
    end
 end

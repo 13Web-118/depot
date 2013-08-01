@@ -272,7 +272,7 @@ while  i<100 do
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
   functionality wrapped in a cleaner, more succinct syntax. In the first
   book on this exciting new language, CoffeeScript guru Trevor Burnham
-  shows you how to hold onto all the power and flexibility of JavaScript
+  shows you how to hold onto all the power and flexibility of JavaScriptrake
   while writing clearer, cleaner, and safer code.
       </p>},
   image_url: File.new("#{Rails.root}/public/uploads/product/image/1.jpg"),    

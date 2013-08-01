@@ -18,6 +18,13 @@
 	</div>
 	<div id="columns">
 		<div id ="side">
+			<div id="sidelogin">
+				<%if session[:client_id] %>
+				<font color="white">Hello </font><a href="<%= clientadmin_path %>"><font color="white"><%= Client.find_by_id(session[:client_id]).name %> !</font></a></br></br>
+				<% else %>
+				<font color="white">Please: </font><%= button_to "Login",clientlogin_path,method: :get%></br></br>
+				<% end %>
+			</div>
 			<div id="cart">
 			<% if @cart %>
 				<%= hidden_div_if(@cart.line_items.empty?,id:'cart') do %>

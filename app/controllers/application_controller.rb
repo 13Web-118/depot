@@ -20,13 +20,13 @@ class ApplicationController < ActionController::Base
 
     def authorize
         unless User.find_by_id(session[:user_id])
-            redirect_to login_url, notice: "Please log in"
+            redirect_to login_url, notice: "Please log in1"
         end
     end
     
     def clientauthorize
       unless Client.find_by_id(session[:client_id])
-        redirect_to clientlogin_url,notice: "Please log in"
+        redirect_to clientlogin_url,notice: "Please log in2"
       end
     end
 

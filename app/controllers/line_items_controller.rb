@@ -24,6 +24,11 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def deleteOne
+    @line_item = LineItem.find(params[:id])
+    @cart=current_cart
+  end
+  
   # GET /line_items/new
   # GET /line_items/new.json
   def new

@@ -76,6 +76,7 @@ class CartsController < ApplicationController
     end
   end
 
+  
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy

@@ -1,4 +1,6 @@
 class CategoryProductsController < ApplicationController
+  skip_before_filter :clientauthorize
+  skip_before_filter :authorize
   # GET /category_products
   # GET /category_products.json
   def index

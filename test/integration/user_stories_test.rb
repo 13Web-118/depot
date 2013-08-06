@@ -29,7 +29,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     post "/clientlogin" , name: dave.name, password: 'secret'
   follow_redirect!
     assert_equal 200, status
-  assert_equal "/clientadmin", path
+  assert_equal "/en", path
 
     get "orders/new"
     assert_response :success

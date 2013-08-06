@@ -5,6 +5,7 @@ class StoreController < ApplicationController
   def index
     if params[:set_locale]
       redirect_to store_path(locale: params[:set_locale])
+      @products = Product.all
     else
       if params[:search]
         @products1 = Product.search(params[:search])

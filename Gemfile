@@ -45,6 +45,12 @@ gem 'bcrypt-ruby', '~>3.0.0'
 
 gem 'carrierwave'
 
+gem 'therubyracer'
+
+gem 'execjs'
+
 gem 'kaminari'
 
-gem "activeadmin", git: "https://github.com/gregbell/active_admin"
+#install bootstrap
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'

@@ -20,7 +20,7 @@ class CartsController < ApplicationController
 		@cart = Cart.find(params[:id])
 	rescue ActiveRecord::RecordNotFound
 		logger.error "Attempt to access invalid cart #{params[:id]}"
-		redirect_to store_url, notice: 'Incalid cart'
+		redirect_to store_url, notice: 'Invalid cart'
 	else
 		respond_to do |format|
 			format.html # show.html.erb
@@ -35,7 +35,7 @@ class CartsController < ApplicationController
     @cart = Cart.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.json { render json: @cart }
     end
   end
@@ -43,6 +43,11 @@ class CartsController < ApplicationController
   # GET /carts/1/edit
   def edit
     @cart = Cart.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @cart }
+    end
   end
 
   # POST /carts

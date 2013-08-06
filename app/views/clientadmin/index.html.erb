@@ -1,6 +1,6 @@
 <% if(session[:client_id])%>
 <p>Welcome! <%= @client.name %>!</p>
-<%= button_to 'Logout',clientlogout_path,method: :delete%>
+
 <h2>Your Orders</h2>
 
 <% if @orders and !@orders.empty? %>

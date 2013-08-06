@@ -7,5 +7,5 @@ class LineItem < ActiveRecord::Base
   attr_accessible :product, :cart
   def total_price
 	 product.price * quantity
-	end
+  end 
 end

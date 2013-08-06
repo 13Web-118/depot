@@ -9,7 +9,7 @@ class ClientsessionController < ApplicationController
     client=Client.find_by_name(params[:name])
     if client and client.authenticate(params[:password])
       session[:client_id]=client.id
-      redirect_to clientadmin_url
+      redirect_to store_url
     else
       redirect_to clientlogin_url,alert: "Invalid client/password combination"
     end
@@ -17,6 +17,6 @@ class ClientsessionController < ApplicationController
 
   def destroy
     session[:client_id]=nil
-    redirect_to clientlogin_url,alert: "Logged out"
+    redirect_to store_url,alert: "Logged out"
   end
 end

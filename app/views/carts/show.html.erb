@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="cart_tite">Your Cart</div>
-<table>
+<table class="table">
 	<%= render(@cart.line_items) %>
 	
 	<tr class="total_line">
@@ -13,6 +13,6 @@
 	
 	</tr>
 </table>
-	
+<br />	
 <%= button_to 'Empty cart',@cart, method: :delete,
 	confirm: 'Are you sure?' %>

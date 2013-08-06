@@ -1,28 +1,15 @@
-<table>
-  <tr>
-    <th>商品图书分类</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @categories = Category.all %>
-<% @categories.each do |category| %>
+<ul>
+  <% @categories = Category.all %>
+  <% @categories.each do |category| %>
   <% if category.parent_id == 0 %>
-  <tr>
-    <td><p><%= link_to '['+category.title+']', :controller => 'store', :action => :index, :id => category.id%></p></td>
-  </tr>
-  <tr>
-  <% @categories.each do |innerCategory|%>
-  	<% if innerCategory.parent_id == category.id %>
-  	<tr>
-      <td>----<%= link_to innerCategory.title, :controller => 'store', :action => :index, :id => innerCategory.id %></td>
-    </tr>
-  	<% end %>
-  <% end %>	
-  </tr>
+  <li class="list_sort">
+    <a href="/?id=<%= category.id %>"><h4><%= category.title %></h4></a>
+    <% @categories.each do |innerCategory|%>
+    <% if innerCategory.parent_id == category.id %>
+    <a href="/?id=<%= innerCategory.id %>"><%= innerCategory.title %></a>
+    <% end %>
+  </li>
   <% end %>
-<% end %>
-</table>
-
-<br />
+  <% end %>
+  <% end %>
+</ul>

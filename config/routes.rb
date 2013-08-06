@@ -1,4 +1,7 @@
 Depot::Application.routes.draw do
+  resources :posts
+
+
   resources :category_products
 
   resources :categories
@@ -15,6 +18,8 @@ Depot::Application.routes.draw do
 
 
   get 'admin' => 'admin#index'
+
+  get 'mycart' => 'mycart#index'
 
 
   #get "sessions/new"
@@ -52,6 +57,8 @@ Depot::Application.routes.draw do
   end
   
   match "/search" => "store#index"
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

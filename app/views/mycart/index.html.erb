@@ -3,11 +3,14 @@
 <% end %>
 
 <div class="cart_tite">My Cart</div>
+<div><a href="<%= store_path %>">>>continue shopping</a></div>
+
 <table class="table">
 	<tr>
     	<th>Number</th>
     	<th>Book Title</th>
    		<th>Price</th>
+   		<th>Delete?</th>
     </tr>
 	<%= render(@cart.line_items) %>
 	

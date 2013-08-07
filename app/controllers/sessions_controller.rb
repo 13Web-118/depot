@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-    skip_before_filter :authorize
-    
-        skip_before_filter :clientauthorize
+  skip_before_filter :authorize
+  skip_before_filter :clientauthorize
+
   def new
+          @cart = current_cart
   end
 
   def create

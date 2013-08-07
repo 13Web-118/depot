@@ -60,10 +60,11 @@
 
             <li class="itm"><b class="w-icon-weibo"></b><a href="#" title="关注depot" target="_blank">新浪微博</a></li>
 
+            <%if !session[:user_id] %>
             <li id="shoppingCart">
             <% if session[:cart_id] %>
               <i class="icon-shopping-cart icon-white"></i><%= link_to '购物车', 'mycart' %>
-              <font color=red><span id="line_items_number"><%= Cart.find(session[:cart_id]).total_number %></span></font>
+              <font color=red><span id="line_items_number"><%= @cart.total_number %></span></font>
             <% end %>
             </li>
 
@@ -78,6 +79,7 @@
             <% else %>
             <li class="itm login" id="w-login" style=""><a href="/clientlogin" id="gotologin">登录</a>
             <span class="w-sep">|</span><a href="/clients/new" hidefocus="hidefocus">注册</a></li>
+            <% end %>
             <% end %>
           </ul>
         </div>
@@ -98,7 +100,7 @@
 			        <li><a href=""><%= t('.contact') %></a></li>
             </ul>
             <div id="rightTag">
-            	<form action = 'store' method="post">
+            	<form action = '<%= store_path %>' method="post">
                 <input id="searchInput"type="text" placeholder="search title or description" name="search"/>
                 <button id= "searchBtn" type="submit" class="btn btn-primary">Search</button>
 				      </form>

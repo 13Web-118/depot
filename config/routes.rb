@@ -7,6 +7,8 @@ Depot::Application.routes.draw do
   resources :categories
   
   get 'clientadmin'=>'clientadmin#index'
+
+  match 'mycart/cartDelete'=> 'carts#itemDelete'
   
   controller :clientsession do
     get 'clientlogin'=> :new

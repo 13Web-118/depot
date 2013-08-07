@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
-      skip_before_filter :clientauthorize
-    skip_before_filter :authorize, only: [:create, :update, :destroy]
+  skip_before_filter :clientauthorize
+  skip_before_filter :authorize, only: [:create, :update, :destroy, :itemDelete]
   # GET /carts
   # GET /carts.json
   def index
@@ -26,6 +26,31 @@ class CartsController < ApplicationController
 			format.html # show.html.erb
 			format.json { render json: @cart }
 		end
+    end
+  end
+
+  def itemDelete
+    @cart = current_cart
+    @line_item = LineItem.find(params[:line_item])
+    LineItem.all.each do |line_item|
+      if line_item.cart_id == @cart.id && line_item.product_id == @line_item.product_id
+        line_item.destroy
+      end
+    end
+
+    respond_to do |format|
+      format.html {redirect_to mycart_path}
+      format.json { render json: @cart}
+    end
+  end
+
+  def itemChangeNumber
+    @cart = current_cart
+    @line_item = LineItem.find(params[:line_item])
+    @number = params[:number] 
+    respond_to do |format|
+      format.html {redirect_to mycart_path}
+      format.json { render json: @cart}
     end
   end
 

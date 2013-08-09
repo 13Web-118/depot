@@ -1,0 +1,15 @@
+<ul>
+  <% @categories = Category.all %>
+  <% @categories.each do |category| %>
+  <% if category.parent_id == 0 %>
+  <li class="list_sort">
+    <a href="/?id=<%= category.id %>"><h4><%= category.title %></h4></a>
+    <% @categories.each do |innerCategory|%>
+    <% if innerCategory.parent_id == category.id %>
+    <a href="/?id=<%= innerCategory.id %>"><%= innerCategory.title %></a>
+    <% end %>
+  </li>
+  <% end %>
+  <% end %>
+  <% end %>
+</ul>

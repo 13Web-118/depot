@@ -1,0 +1,35 @@
+<table class="table">
+  <tr>
+    <th>商品图书分类</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <% if category.parent_id == 0 %>
+  <tr>
+    <td>[<%= category.title %>]</td>
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <tr>
+  <% @categories.each do |innerCategory|%>
+  	<% if innerCategory.parent_id == category.id %>
+  	<tr>
+      <td>----<%= innerCategory.title %></td>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  	<% end %>
+  <% end %>	
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Category', new_category_path %>

@@ -1,0 +1,145 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ .m-sitenav{
+    height:30px;
+ 	text-align:left;
+ 	line-height:30px;
+ 	.wrap{
+ 	 	position:relative;
+ 		width:1200px;
+ 		margin: 0 auto;
+ 		z-index: 1000;
+ 		.m-sns{
+ 			li{
+ 	 			float: left;
+ 	 			list-style:none;
+ 	 			.w-dropmenu{
+ 	 				position: relative;
+ 	 				zoom: 1;
+ 	 				display:block;
+ 	 				z-index: 100;
+ 	 				.ttl{
+ 	 					position:relative;
+ 	 					float: left;
+ 	 					padding:6px 8px;
+ 	 					z-index:1002;
+ 	 					cursor:pointer;
+ 	 					line-height: 18px;
+ 	 					color:#613f23;
+ 	 				}
+ 	 			}
+ 	 			.w-icon-weibo{
+ 	 				background-position:0 0;
+ 	 				background:url(../app/asserts/images/sns.png)  no-repeat;
+ 	 			}
+ 	 			a{
+ 	 				color:#613f23;
+ 	 				text-decoration:none;
+ 	 				line-height:30px;
+
+ 	 			}
+ 	 		}
+ 	 		.itm{
+ 	 			padding: 0 8px;
+ 	 			.w-icon-weibo {
+ 	 				margin-top: 9px;
+ 	 			}
+ 	 		}
+ 	 		b{
+ 	 			float: left;
+ 	 			display:block;
+ 	 			width:14px;
+ 	 			height:14px;
+ 	 			margin-right:4px;
+ 	 		}
+ 	 		#welcome{
+ 	 			float:right;
+ 	 			margin-right:5px;
+ 	 			#clientHref{
+ 	 				color:red;
+ 	 			}
+ 	 		}
+ 	 		.button_to{
+ 	 			float:right;
+ 	 			.btn{
+ 	 				margin-top:0;
+ 	 			}
+ 	 		}
+ 	 		#shoppingCart{
+ 	 			margin-top:0px;
+ 	 			margin-left:5px;
+ 	 			float:right;
+ 	 		}
+ 	 		#w-login{
+ 	 			float:right;
+ 	 		}
+
+ 		}
+ 	}
+ }
+ .navbar-inner{
+ 	#title{
+ 		margin-top: 15px;
+ 		font-size: 22px;
+ 	}
+
+ 	#navList{
+ 		font-size:15px;
+ 	}
+ 	.container-fluid{
+ 		#navList{
+ 			margin-top: 15px;
+ 		}
+ 	}
+ 	#rightTag{
+ 		float:right;
+ 		#searchInput{
+ 			margin-top: 15px;
+ 		}
+ 	}
+ }
+
+ .container-fluid{
+ 	.row-fluid{
+ 		.span3{
+ 			.well.sidebar-nav{
+ 				.btn-group{
+ 					padding-left:15px;
+ 					padding-right:15px;
+ 					margin-bottom:10px
+ 				}
+ 				.nav.nav-list{
+ 					.nav-header{
+ 						font-size: 14px;
+ 					}
+ 					#list_categories{
+ 						.list_sort{
+ 							list-style:none;
+ 						}
+ 					}
+
+ 				}
+ 			}
+ 		}
+ 	}
+ }
+
+ #notice {
+  color: #000 !important;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+ }

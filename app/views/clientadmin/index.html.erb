@@ -1,0 +1,19 @@
+<% if(session[:client_id])%>
+<p>Welcome! <%= @client.name %>!</p>
+
+<h2>Your Orders</h2>
+
+<% if @orders and !@orders.empty? %>
+
+<% @orders.each do |order|%>
+<tr>order:<%= order.id%></tr></br>
+
+<%= render :partial=>"line_items/line2_item",:collection =>  order.line_items   %>
+</br>
+</br>
+<% end %>
+
+<%end %>
+
+
+<% end %>

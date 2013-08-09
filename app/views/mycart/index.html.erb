@@ -1,0 +1,29 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="cart_tite">My Cart</div>
+<div><a href="<%= store_path %>">>>continue shopping</a></div>
+
+<table class="table">
+	<tr>
+    	<th>Number</th>
+    	<th>Book Title</th>
+   		<th>Price</th>
+   		<th>Delete?</th>
+    </tr>
+	<%= render(@cart.line_items) %>
+	
+	<tr class="total_line">
+	
+		<td colspan="2">Total</td>
+		<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+	
+	</tr>
+</table>
+<br />	
+
+<%= button_to 'Empty cart',@cart, method: :delete, class: "btn btn btn-primary",
+	id: "emptyCart", confirm: 'Are you sure?' %>
+<%= button_to 'checkout', new_order_path, method: :get, class: "btn btn btn-primary",
+	id: "checkout" %>
